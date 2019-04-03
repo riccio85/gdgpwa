@@ -1,21 +1,132 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header >
+  <div class="col-md-12 mb-4">
+    <!--h2 class="text-uppercase my-3">Schedule</h2-->
+    <div>
+      <img src="assets/images/logo.png" style="height: 75px;max-width:100%"/>
+    </div>
+    <h5 class="mb-4 d-md-block text-center"><b>Action on Google IWD Day 2019</b></h5>
+  </div>
+</header>
 
-<router-outlet></router-outlet>
+<main>
+  <div class="container">
+    <!-- Timeline -->
+   <div class="row text-right">
+      <div class="col-md-6 d-sm-hide"></div>
+       <div class="col-md-6" >
+          <fb-like url="https://www.meetup.com/it-IT/GDG-Roma/events/259559241/"></fb-like>
+          <div class="col" style="margin-top: 14px;margin-bottom: -4px;">
+            <tweet url="https://www.meetup.com/it-IT/GDG-Roma/events/259559241/"
+           text="Having amazing time with #IWDAoG & #WTM19 workshop @GDG_Roma & @WTM_Roma"></tweet>
+         </div>
+       </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="timeline-main">
+            <!-- Timeline Wrapper -->
+            <ul class="stepper stepper-vertical timeline timeline-animated">
+              <li *ngFor="let item of items | async ; let i = index" class="col col-lg-12" >
+                <!--Section Title -->
+                <span (click)="onShowDetail(item)">
+                  <button rounded="true" mdbBtn type="button" color="info"  size="md" mdbWavesEffect
+                          class="timeBotton">{{item.startTime}}</button>
+                  <!-- Section Description -->
+                  <app-schedule-item [value]="item"></app-schedule-item>
+               </span>
+              </li>
+            </ul>
+            <!-- Timeline Wrapper -->
+          </div>
+        </div>
+      </div>
+      <!-- Timeline -->
+      <span>
+        <h2 class="text-uppercase mb-3 mt-5 pt-4">Code of conduct</h2>
+        <h6 class="mb-5">
+          <a href="https://www.google.com/events/policy/anti-harassmentpolicy.html" target="_blank">
+            Here is our code of conduct
+          </a>
+        </h6>
+      </span>
+
+ </div><!--container-->
+
+
+<span>
+     <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+
+          <div class="modal-content">
+
+            <div class="modal-header text-center">
+              <h4 class="modal-title white-text w-100 font-weight-bold py-2">Schedule appointment</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+
+
+            <div class="modal-body">
+
+              <div class="md-form mb-5">
+                <mdb-icon far icon="clock" class="prefix blue-text"></mdb-icon>
+                <input type="text" id="form1" class="form-control" mdbInputDirective [formControl]="timeStartInput"
+                       required>
+                <label data-error="wrong" data-success="right" for="form1">StartTime</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <mdb-icon far icon="clock" class="prefix blue-text"></mdb-icon>
+                <input type="text" id="form1" class="form-control" mdbInputDirective [formControl]="timeInput"
+                       required>
+                <label data-error="wrong" data-success="right" for="form1">Time</label>
+              </div>
+
+              <div class="md-form">
+                <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
+                <input type="email" id="form2" class="form-control" mdbInputDirective [formControl]="subjectInput"
+                       required>
+                <label data-error="wrong" data-success="right" for="form2">Subject</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <mdb-icon far icon="map" class="prefix grey-text"></mdb-icon>
+                <input type="text" id="form3" class="form-control" mdbInputDirective [formControl]="locationInput">
+                <label data-error="wrong" data-success="right" for="form3">Location (optional) </label>
+              </div>
+
+              <div class="md-form">
+                <mdb-icon far icon="edit" class="prefix grey-text"></mdb-icon>
+                <input type="email" id="form4" class="form-control" mdbInputDirective
+                       [formControl]="descriptionInput">
+                <label data-error="wrong" data-success="right" for="form4">Description (optional) </label>
+              </div>
+
+            </div>
+
+            <div class="modal-footer justify-content-center">
+              <button type="button" mdbBtn color="info" class="waves-effect" (click)="addNewItem()"
+                      mdbWavesEffect [disabled]="timeInput.errors || subjectInput.errors">Add
+              </button>
+            </div>
+
+
+          </div>
+
+        </div>
+     </div>
+
+     <!--div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="info" class="waves-effect mb-4" (click)="frame.show()"
+           mdbWavesEffect>Add event
+        </a>
+      </div-->
+</span>
+
+</main>
+<footer class="text-center">
+  <hr/>
+  Build with <mdb-icon fas icon="heart" size="1x" class="blue-text" aria-hidden="true"></mdb-icon> by <!--a target="_blank" href="https://www.linkedin.com/in/rihanna-kedir-05068568/"--><a target="_blank" href="https://www.meetup.com/it-IT/GDG-Roma/"> gdgRoma & WTMRoma</a>
+ </footer>

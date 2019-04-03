@@ -1,0 +1,19 @@
+header{
+  background-color: #d3d3d366;
+  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+}
+
+ul.stepper li .step-content {
+  margin-left: 4em !important;
+}
+
+.stepper-vertical li {
+  align-items: stretch !important;
+}
+
+.timeBotton{
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  max-width: 90px;
+  z-index: 999;
+}

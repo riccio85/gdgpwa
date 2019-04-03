@@ -1,10 +1,17 @@
-# GdgRomaPwa
+# Gdg Roma Agenda Pwa
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+Uses Angular Material design components
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+## integration with Firebase
+This project uses firebase cloudStore for saving the agenda data and deploying the application
+For how to configure please refer to this tutorial. `url firebase cloudstore and deploy`
+
 
 ## Code scaffolding
 

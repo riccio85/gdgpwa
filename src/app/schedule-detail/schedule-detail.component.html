@@ -1,0 +1,38 @@
+  <div class="modal-content">
+   <!--Header-->
+   <div class="modal-header">
+     <p class="heading lead">{{subject}}</p>
+
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+       <span aria-hidden="true" class="white-text">&times;</span>
+     </button>
+   </div>
+
+   <!--Body-->
+   <div class="modal-body">
+
+     <div class="row">
+       <div class="col-sm-8">
+         <mdb-icon far icon="clock" class="prefix blue-text"></mdb-icon>
+         {{time}}
+       </div>
+       <div class="col-sm-4 text-right">
+            <!--fb-like url="http://Twitter.com"></fb-like-->
+            <!--tweet url="http://Twitter.com" text="Check out {{subject}} at https://gdg-roma-pwa.firebaseapp.com}}"></tweet-->
+       </div>
+     </div>
+
+     <br/><br/>
+
+     <div class="row">
+         <p>{{description}}</p>
+     </div>
+
+   </div>
+
+   <!--Footer-->
+   <!--
+       <div class="modal-footer justify-content-center">
+    -->
+  </div>
+  <!--/.Content-->
